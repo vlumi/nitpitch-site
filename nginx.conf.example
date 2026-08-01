@@ -5,6 +5,21 @@
 # and certbot ADDS the `listen 443 ssl` block + the HTTP->HTTPS redirect for you.
 # Do NOT hand-write the 443 block.
 #
+# BOTH names, every time. `www` has a DNS record pointing at this box, so a
+# cert covering only the apex still leaves nginx answering for www — and the
+# TLS handshake fails before nginx can respond at all. Chrome shows a full
+# security interstitial; Safari may hide it behind a cached redirect, so
+# spot-checking in one browser can miss it entirely. Verify with:
+#   openssl s_client -connect www.nitpitch.app:443 -servername www.nitpitch.app \
+#     </dev/null | openssl x509 -noout -ext subjectAltName
+#
+# If certbot fails with "Invalid response … 404" for www, the ACME challenge
+# isn't reachable on that name: Let's Encrypt fetches
+# http://www.nitpitch.app/.well-known/acme-challenge/<token> over plain HTTP,
+# and anything that redirects or 404s that path blocks issuance. Both names
+# must be served from the same block (as below) or the challenge path
+# explicitly excepted before any redirect.
+#
 # `root` points at the web root ITSELF — deploy.sh builds straight into it
 # (--cleanDestinationDir), there is no `public/` subdir. Keep this in step with
 # WEBROOT in deploy.sh (default /var/www/nitpitch.app).
