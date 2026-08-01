@@ -86,6 +86,16 @@ body {
 }
 .hero-tagline { font-size: 1.25rem; font-weight: 700; margin: .2rem 0 1rem; }
 .hero-lede { max-width: 40rem; margin: 0 auto 1.5rem; color: var(--text-soft); }
+
+/* Hero links (the 404's routes back) — without this they fall through to the
+   browser default blue, which is both off-palette and poor contrast on the
+   charcoal ground. */
+.hero a { color: var(--accent); text-decoration: underline; }
+.hero a:hover { text-decoration: none; }
+/* The "coming soon" pill is already tinted; an underline inside it reads as
+   a second, competing control. */
+.hero-soon a { text-decoration: none; }
+.hero-soon a:hover { text-decoration: underline; }
 .hero-soon {
   font-weight: 700;
   color: var(--accent);
