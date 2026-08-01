@@ -1,0 +1,11 @@
+<header class="site-head">
+  <a class="brand" href="/">
+    <span class="brand-mark" aria-hidden="true"></span>
+    <span class="brand-name">Nitpitch</span>
+  </a>
+  <nav class="site-nav">
+    {{ range .Site.Menus.main }}
+      <a href="{{ .PageRef | relLangURL }}">{{ .Name }}</a>
+    {{ end }}
+  </nav>
+</header>

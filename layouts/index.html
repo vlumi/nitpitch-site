@@ -1,0 +1,71 @@
+{{ define "main" }}
+  <section class="hero">
+    <img class="hero-icon" src="/appicon.png" width="128" height="128"
+         alt="Nitpitch app icon">
+
+    <h1 class="hero-title">Nitpitch</h1>
+    <p class="hero-tagline">{{ .Site.Params.tagline }}</p>
+
+    {{/* The app's dial, drawn in CSS — decoration, not information. */}}
+    <div class="dial" aria-hidden="true"></div>
+
+    <p class="hero-lede">
+      Nitpicking about pitch, which is the entire job. Built for
+      <strong>violin</strong> first — that's the reason it exists — with the
+      other string instruments along for the ride.
+    </p>
+    {{ with .Site.Params.appStoreURL }}
+      <a class="appstore-badge" href="{{ . }}"><img src="/img/app-store-badge.svg" alt="Download on the App Store" width="150" height="50"></a>
+    {{ else }}
+      <p class="hero-soon">Coming to the App Store.</p>
+    {{ end }}
+  </section>
+
+  <section class="features">
+    <div class="feature">
+      <h2>Sub-cent accuracy</h2>
+      <p>Which is what tuning actually needs — a cent at A4 is about a quarter
+      of a hertz. The reading updates around twenty times a second, so the
+      needle moves with the peg rather than after it.</p>
+    </div>
+    <div class="feature">
+      <h2>No octave errors</h2>
+      <p>Bowed and plucked strings put more energy into their harmonics than
+      their fundamental, which is what makes naive tuners jump an octave.
+      Nitpitch resolves the fundamental instead of the loudest partial.</p>
+    </div>
+    <div class="feature">
+      <h2>Read it at a glance</h2>
+      <p>The error fills the gap between a fixed needle and your note, so in
+      tune is <em>nothing at all</em> rather than a pointer you have to judge.
+      Underneath, a row of lights spaced logarithmically — fine near the
+      centre, where tuning happens.</p>
+    </div>
+    <div class="feature">
+      <h2>Any reference you play at</h2>
+      <p>A=390 through 466, a hertz at a time. 440 by default; European
+      orchestras commonly sit at 442 or 443, and baroque ensembles at 415.</p>
+    </div>
+    <div class="feature">
+      <h2>Your notation</h2>
+      <p>Note names in English, German (H for B♮, B for B♭), Italian solfège,
+      or the Japanese iroha names — shown alongside the scientific pitch, so
+      there's never any doubt which octave you're in.</p>
+    </div>
+    <div class="feature">
+      <h2>Nothing leaves the device</h2>
+      <p>Audio is analysed frame by frame in memory and discarded. No
+      recording, no network — the Mac build doesn't even carry the network
+      entitlement, so the sandbox enforces it rather than merely documenting
+      it.</p>
+    </div>
+  </section>
+
+  <section class="closing">
+    <p>Violin, viola, cello, double bass, guitar, bass guitar — and a chromatic mode.</p>
+    <p class="fine">
+      Free, no ads, no accounts, no tracking. Open source under the MIT licence
+      at <a href="{{ .Site.Params.githubURL }}">github.com/vlumi/nitpitch</a>.
+    </p>
+  </section>
+{{ end }}

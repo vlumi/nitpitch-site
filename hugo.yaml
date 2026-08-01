@@ -1,0 +1,27 @@
+baseURL: "https://nitpitch.app/"
+locale: "en-US"
+title: "Nitpitch"
+
+# Clean URLs; no taxonomies needed for a small marketing/support site.
+disableKinds:
+  - taxonomy
+  - term
+  - RSS
+
+params:
+  tagline: "A violin tuner for iPhone, iPad, and Mac."
+  # Region-agnostic Universal Purchase link (one link serves iPhone/iPad/Mac).
+  # Empty until the app is on sale — the template shows "coming soon" instead.
+  appStoreURL: ""
+  supportEmail: ""
+  githubURL: "https://github.com/vlumi/nitpitch"
+  sponsorURL: "https://github.com/sponsors/vlumi"
+
+menu:
+  main:
+    - name: "Support"
+      pageRef: "/support"
+      weight: 10
+    - name: "Privacy"
+      pageRef: "/privacy"
+      weight: 20
