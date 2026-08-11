@@ -1,0 +1,14 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": ["U84DT7P75P.fi.misaki.nitpitch"],
+        "components": [
+          { "/": "/t", "comment": "Shared preset links; the payload rides in the fragment, which never reaches this server." },
+          { "/": "/t/*" }
+        ]
+      }
+    ]
+  }
+}

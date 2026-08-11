@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!-- The landing spot for shared preset links (https://nitpitch.app/t#…).
+
+     With Nitpitch installed, iOS/macOS open the app directly and nobody sees
+     this page. Without it, the link falls back here — and this page shows
+     what was shared, plus the way to open it in the app.
+
+     This is the site's ONE deliberate exception to the no-JS rule: the
+     preset payload rides in the URL FRAGMENT, which browsers never send to
+     the server — by design, so this host learns nothing about what anyone
+     shares. The unavoidable consequence is that only client-side code can
+     render it. The script below reads location.hash and writes text; it
+     fetches nothing, stores nothing, and sends nothing. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Shared tuning · Nitpitch</title>
+<style>
+  :root { color-scheme: light dark; }
+  body {
+    font: 17px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    max-width: 34rem; margin: 0 auto; padding: 3rem 1.25rem;
+    text-align: center;
+  }
+  h1 { font-size: 1.4rem; margin: 0 0 .25rem; }
+  .payload { opacity: .75; margin: 0 0 .35rem; }
+  .meta { opacity: .55; font-size: .9rem; margin: 0 0 2rem; }
+  .open {
+    display: inline-block; padding: .65rem 1.4rem; border-radius: 10px;
+    background: #b8523a; color: #fff; text-decoration: none; font-weight: 600;
+  }
+  .hint { opacity: .55; font-size: .85rem; margin-top: 2.5rem; }
+  .hint a { color: inherit; }
+</style>
+</head>
+<body>
+  <p style="opacity:.55;margin-bottom:2.5rem"><a href="/" style="color:inherit;text-decoration:none">← nitpitch.app</a></p>
+  <h1 id="name">A shared tuning</h1>
+  <p class="payload" id="payload"></p>
+  <p class="meta" id="meta"></p>
+  <p><a class="open" id="open" href="#">Open in Nitpitch</a></p>
+  <p class="hint" id="hint">
+    Nitpitch is a violin-first instrument tuner for iPhone, iPad, and Mac,
+    currently in beta. If the app is installed, this link opens in it
+    directly.
+  </p>
+<script>
+(function () {
+  "use strict";
+  var NAMES = ["C", "C♯", "D", "D♯", "E", "F", "F♯", "G", "G♯", "A", "A♯", "B"];
+  var INSTRUMENTS = {
+    "violin": "Violin", "viola": "Viola", "cello": "Cello",
+    "double-bass": "Double Bass", "guitar": "Guitar",
+    "guitar-7": "7-string Guitar", "guitar-8": "8-string Guitar",
+    "bass-guitar": "Bass Guitar", "bass-guitar-5": "5-string Bass"
+  };
+  function note(midi) {
+    return NAMES[midi % 12] + (Math.floor(midi / 12) - 1);
+  }
+  // v1|templateID|midi,midi,…|refHz|temperament|name — the name last, so a
+  // name containing "|" cannot shift the fields before it.
+  var fragment = "";
+  try {
+    fragment = decodeURIComponent(location.hash.replace(/^#/, ""));
+  } catch (e) {
+    // A malformed percent-sequence is just not a preset link.
+  }
+  var parts = fragment.split("|");
+  var name = parts.slice(5).join("|");
+  if (parts.length < 6 || parts[0] !== "v1" || !name) {
+    document.getElementById("name").textContent = "Shared tunings land here";
+    document.getElementById("payload").textContent =
+      "This page shows a tuning shared from Nitpitch. The link you followed doesn't carry one.";
+    document.getElementById("open").style.display = "none";
+    return;
+  }
+  var midis = parts[2].split(",").map(Number);
+  var pitches = midis.every(function (m) { return m >= 0 && m <= 127; })
+    ? midis.map(note).join(" ") : "";
+  var details = [];
+  if (parts[3]) { details.push("A=" + parts[3]); }
+  if (parts[4] === "pure") { details.push("pure"); }
+  document.getElementById("name").textContent = "“" + name + "”";
+  document.getElementById("payload").textContent =
+    (INSTRUMENTS[parts[1]] || parts[1]) + " · " + pitches;
+  document.getElementById("meta").textContent = details.join(" · ");
+  // The same payload through the app's own scheme: the bridge for a device
+  // where the universal link opened the browser anyway.
+  document.getElementById("open").href = "nitpitch://preset#" + fragment;
+})();
+</script>
+</body>
+</html>
