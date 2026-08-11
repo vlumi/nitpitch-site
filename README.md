@@ -55,6 +55,21 @@ Four pages, all small:
   and a privacy policy that contradicts itself is worse than either version
   alone.
 
+## Planned: the tuning collection
+
+The app ships only the obvious tunings — standard, Drop D. The long tail
+(scordatura, open tunings, historical and regional setups) is meant to live
+*here*, as pages of preset links (`https://nitpitch.app/t#…` — the same links
+the app's own sharing emits), so the collection grows without an app update
+or a trip through App Review, and without bloating the picker for everyone
+who just wants standard.
+
+The plumbing has shipped on both sides: the app emits and accepts these links
+as Universal Links, and `/t` is their landing page for anyone without the
+app. What's not built is the collection itself — the curated pages. See
+"nitpitch.app's tuning collection" in the app repo's ROADMAP (named, not
+numbered: the section numbers churn).
+
 ## Assets
 
 `static/appicon.png` is generated from the app's own icon script
