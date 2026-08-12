@@ -161,9 +161,34 @@ instruments:
     title: "Guitar"
     template: "guitar"
     intro: >-
-      The app ships the everyday five (Standard, Drop D, DADGAD, Open G,
-      Half-step down). This is the next ring out.
+      Standard is built in; the everyday four arrive as presets you can
+      delete — and recover below. Then the next ring out.
     groups:
+      - name: "Ships in the app"
+        blurb: >-
+          These arrive with the app as ordinary presets. If you deleted one
+          and want it back, it's one scan away — same name, same pitches.
+        entries:
+          - name: "Drop D"
+            midis: [38, 45, 50, 55, 59, 64]
+            blurb: >-
+              The sixth string down a step. One-finger power chords, a
+              deeper floor — the first alternate tuning most players meet.
+          - name: "DADGAD"
+            midis: [38, 45, 50, 55, 57, 62]
+            blurb: >-
+              The Celtic modal standard — neither major nor minor until you
+              commit.
+          - name: "Open G"
+            midis: [38, 43, 50, 55, 59, 62]
+            blurb: >-
+              The open G chord — Keith Richards' home (minus his missing
+              sixth string), and half the Delta.
+          - name: "Half-step down"
+            midis: [39, 44, 49, 54, 58, 63]
+            blurb: >-
+              Everything down a semitone: slacker feel, darker voice, and a
+              kinder key for singers. Hendrix lived here.
       - name: "Open tunings"
         blurb: >-
           The open strings sound a chord — slide players' home ground, and
@@ -222,9 +247,22 @@ instruments:
     title: "Bass Guitar"
     template: "bass-guitar"
     intro: >-
-      The app ships Standard, Drop D, and Half-step down. These are the
-      deeper detunes and the restrings.
+      The everyday pair ships with the app; the deeper detunes and the
+      restrings live here.
     groups:
+      - name: "Ships in the app"
+        blurb: >-
+          These arrive with the app as ordinary presets. Deleted one? One
+          scan brings it back — same name, same pitches.
+        entries:
+          - name: "Drop D"
+            midis: [26, 33, 38, 43]
+            blurb: >-
+              The low string down a step, matching drop-D guitars.
+          - name: "Half-step down"
+            midis: [27, 32, 37, 42]
+            blurb: >-
+              Everything down a semitone, for bands living a half step low.
       - name: "Lowered"
         entries:
           - name: "Full step down"
