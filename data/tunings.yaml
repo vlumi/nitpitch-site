@@ -1,0 +1,309 @@
+# The tuning collection: every entry becomes a QR + universal link on
+# nitpitch.app/tunings/<instrument>/. MIDI numbers are the source of truth
+# (the note names on the page are computed from them), low string first.
+# `ref` is carried only where the pitch IS the point (historical pitch);
+# temperament is never carried — the player's own setting is respected.
+
+categories:
+  - name: "Bowed"
+    instruments: ["violin", "viola", "cello", "double-bass"]
+  - name: "Fretted"
+    instruments: ["guitar", "bass-guitar", "bass-guitar-5"]
+
+instruments:
+  violin:
+    title: "Violin"
+    template: "violin"
+    intro: >-
+      Standard tuning ships in the app. These are the tunings you retune FOR —
+      a session, a piece, a pitch standard.
+    groups:
+      - name: "Old-time & fiddle cross-tunings"
+        blurb: >-
+          Cross-tunings put the open strings into the key of the tune, so
+          drones and double stops ring under the melody. Fiddlers swap these
+          constantly — often per tune.
+        entries:
+          - name: "Cross A"
+            midis: [57, 64, 69, 76]
+            blurb: >-
+              AEAE — the classic cross-tuning for tunes in A. Both bottom
+              strings come up a step; the fiddle rings like a banjo.
+          - name: "Old-time ADAE"
+            midis: [57, 62, 69, 76]
+            blurb: >-
+              Only the G comes up to A. Halfway to Cross A, for D tunes with
+              an A drone underneath.
+          - name: "Sawmill"
+            midis: [55, 62, 67, 74]
+            blurb: >-
+              GDGD — "cross G". The top two come down; modal G tunes ring
+              against the open fifths.
+          - name: "Dead man's"
+            midis: [50, 62, 69, 74]
+            blurb: >-
+              DDAD — the G drops a fourth to D, the E down a step. The
+              Bonaparte's Retreat sound; big open D drones.
+          - name: "Calico"
+            midis: [57, 64, 69, 73]
+            blurb: >-
+              AEAC♯ — an open A chord across the strings, for Black Mountain
+              Rag and its cousins.
+      - name: "Historical pitch"
+        blurb: >-
+          Standard fifths at another reference. These carry the reference
+          pitch with them — loading one moves your A.
+        entries:
+          - name: "Baroque A=415"
+            midis: [55, 62, 69, 76]
+            ref: 415
+            blurb: >-
+              A semitone under modern pitch — the working standard of period
+              ensembles.
+          - name: "Classical A=430"
+            midis: [55, 62, 69, 76]
+            ref: 430
+            blurb: >-
+              Between Baroque and modern: the pitch of the classical-era
+              orchestra, common in period Mozart and Haydn.
+          - name: "Vienna A=443"
+            midis: [55, 62, 69, 76]
+            ref: 443
+            blurb: >-
+              Many European orchestras sit at 442–443. If the oboe says 443,
+              this is one tap.
+      - name: "Scordatura repertoire"
+        blurb: >-
+          Pieces that ask the violin to be strung differently. Retune, play,
+          and load Standard back afterwards.
+        entries:
+          - name: "Danse Macabre"
+            midis: [55, 62, 69, 75]
+            blurb: >-
+              Saint-Saëns' solo part flattens the E to E♭ — Death's fiddle
+              gets its tritone against the open A.
+          - name: "Mahler 4 solo"
+            midis: [57, 64, 71, 78]
+            blurb: >-
+              The second movement's solo violin, tuned a whole step up to
+              sound "wie eine Fidel" — harsh, like a folk fiddle.
+  viola:
+    title: "Viola"
+    template: "viola"
+    intro: >-
+      The viola's one famous scordatura, and period pitch for the ensembles
+      that live there.
+    groups:
+      - name: "Scordatura repertoire"
+        entries:
+          - name: "Sinfonia Concertante"
+            midis: [49, 56, 63, 70]
+            blurb: >-
+              Mozart writes the solo viola in D but tunes it a semitone up,
+              sounding in E♭ with the orchestra — tighter strings, and a
+              brilliance that carries against the solo violin.
+      - name: "Historical pitch"
+        entries:
+          - name: "Baroque A=415"
+            midis: [48, 55, 62, 69]
+            ref: 415
+            blurb: >-
+              Standard fifths at period pitch — the viola's seat in a
+              Baroque band.
+  cello:
+    title: "Cello"
+    template: "cello"
+    intro: >-
+      Two famous scordatura and the period-pitch standard.
+    groups:
+      - name: "Scordatura repertoire"
+        entries:
+          - name: "Bach Suite No. 5"
+            midis: [36, 43, 50, 55]
+            blurb: >-
+              The A string down to G — the most famous scordatura there is.
+              Darker resonance, and chords the standard tuning can't reach.
+          - name: "Kodály Sonata"
+            midis: [35, 42, 50, 57]
+            blurb: >-
+              Op. 8 tunes the bottom two strings down a semitone to B and
+              F♯, so the open strings sound the B minor world of the piece.
+      - name: "Historical pitch"
+        entries:
+          - name: "Baroque A=415"
+            midis: [36, 43, 50, 57]
+            ref: 415
+            blurb: >-
+              Standard fifths at period pitch, for continuo and suite work
+              with period ensembles.
+  double-bass:
+    title: "Double Bass"
+    template: "double-bass"
+    intro: >-
+      The bass keeps two parallel worlds: orchestral tuning in fourths, and
+      the soloist's scordatura a step above it.
+    groups:
+      - name: "Solo & alternative tunings"
+        entries:
+          - name: "Solo tuning"
+            midis: [30, 35, 40, 45]
+            blurb: >-
+              The whole instrument a step up — F♯ B E A. The standard
+              scordatura of the solo repertoire; solo strings are made for
+              it.
+          - name: "Fifths tuning"
+            midis: [24, 31, 38, 45]
+            blurb: >-
+              C G D A, an octave below the cello. The Red Mitchell tuning —
+              bigger reach, cello fingerings, and a low C without an
+              extension.
+  guitar:
+    title: "Guitar"
+    template: "guitar"
+    intro: >-
+      Standard is built in; the everyday four arrive as presets you can
+      delete — and recover below. Then the next ring out.
+    groups:
+      - name: "Ships in the app"
+        blurb: >-
+          These arrive with the app as ordinary presets. If you deleted one
+          and want it back, it's one scan away — same name, same pitches.
+        entries:
+          - name: "Drop D"
+            midis: [38, 45, 50, 55, 59, 64]
+            blurb: >-
+              The sixth string down a step. One-finger power chords, a
+              deeper floor — the first alternate tuning most players meet.
+          - name: "DADGAD"
+            midis: [38, 45, 50, 55, 57, 62]
+            blurb: >-
+              The Celtic modal standard — neither major nor minor until you
+              commit.
+          - name: "Open G"
+            midis: [38, 43, 50, 55, 59, 62]
+            blurb: >-
+              The open G chord — Keith Richards' home (minus his missing
+              sixth string), and half the Delta.
+          - name: "Half-step down"
+            midis: [39, 44, 49, 54, 58, 63]
+            blurb: >-
+              Everything down a semitone: slacker feel, darker voice, and a
+              kinder key for singers. Hendrix lived here.
+      - name: "Open tunings"
+        blurb: >-
+          The open strings sound a chord — slide players' home ground, and
+          the fastest way into a new song's world.
+        entries:
+          - name: "Open D"
+            midis: [38, 45, 50, 54, 57, 62]
+            blurb: >-
+              D A D F♯ A D — "Vestapol". The bedrock open tuning: slide,
+              fingerstyle, and a hundred years of blues.
+          - name: "Open E"
+            midis: [40, 47, 52, 56, 59, 64]
+            blurb: >-
+              Open D's shape a step up, without a capo. Duane Allman's slide
+              tuning; harder on the neck — some prefer Open D with a capo 2.
+          - name: "Open C"
+            midis: [36, 43, 48, 55, 60, 64]
+            blurb: >-
+              C G C G C E — deep and wide. Devin Townsend and a lot of
+              modern fingerstyle live here.
+          - name: "Open A"
+            midis: [40, 45, 52, 57, 61, 64]
+            blurb: >-
+              E A E A C♯ E — Open G's cousin a step up, with the top string
+              kept at E. Delta blues slide territory.
+          - name: "Open D minor"
+            midis: [38, 45, 50, 53, 57, 62]
+            blurb: >-
+              D A D F A D — one string from Open D, a world apart. The
+              darkest of the common opens.
+      - name: "Dropped & lowered"
+        entries:
+          - name: "Double drop D"
+            midis: [38, 45, 50, 55, 59, 62]
+            blurb: >-
+              Both E strings down to D. Neil Young's home tuning —
+              Cinnamon Girl, Ohio.
+          - name: "Full step down"
+            midis: [38, 43, 48, 53, 57, 62]
+            blurb: >-
+              Standard, one whole step lower. Slacker tension, darker voice
+              — from SRV to doom.
+          - name: "Drop C"
+            midis: [36, 43, 48, 53, 57, 62]
+            blurb: >-
+              Full step down with the sixth dropped further to C — the
+              workhorse of modern heavy rhythm playing.
+      - name: "Folk & modal"
+        entries:
+          - name: "Orkney"
+            midis: [36, 43, 50, 55, 60, 62]
+            blurb: >-
+              C G D G C D — neither major nor minor, all drone. A favorite
+              of the Scottish and Irish fingerstyle school.
+  bass-guitar:
+    title: "Bass Guitar"
+    template: "bass-guitar"
+    intro: >-
+      The everyday pair ships with the app; the deeper detunes and the
+      restrings live here.
+    groups:
+      - name: "Ships in the app"
+        blurb: >-
+          These arrive with the app as ordinary presets. Deleted one? One
+          scan brings it back — same name, same pitches.
+        entries:
+          - name: "Drop D"
+            midis: [26, 33, 38, 43]
+            blurb: >-
+              The low string down a step, matching drop-D guitars.
+          - name: "Half-step down"
+            midis: [27, 32, 37, 42]
+            blurb: >-
+              Everything down a semitone, for bands living a half step low.
+      - name: "Lowered"
+        entries:
+          - name: "Full step down"
+            midis: [26, 31, 36, 41]
+            blurb: >-
+              D G C F — standard, one whole step lower, matching a band in
+              D standard.
+          - name: "Drop C"
+            midis: [24, 31, 36, 41]
+            blurb: >-
+              C G C F — full step down with the low string dropped to C,
+              matching drop-C guitars. The floor of comfortable four-string
+              detuning.
+      - name: "Restrung"
+        blurb: >-
+          These want a different string set, not just slacker tuning — the
+          honest cost of the range they buy.
+        entries:
+          - name: "BEAD"
+            midis: [23, 28, 33, 38]
+            blurb: >-
+              A five-string's low range on four strings: drop the G, add a
+              heavy B, shift everything over. Needs the heavier set.
+          - name: "Tenor bass"
+            midis: [33, 38, 43, 48]
+            blurb: >-
+              A D G C — the low E traded for a high C. Stanley Clarke's
+              register: chords and melody on top of the band, with a
+              lighter set.
+  bass-guitar-5:
+    title: "5-string Bass"
+    template: "bass-guitar-5"
+    intro: >-
+      The five-string usually extends DOWN — but the other direction exists
+      too.
+    groups:
+      - name: "Alternative sets"
+        entries:
+          - name: "High C"
+            midis: [28, 33, 38, 43, 48]
+            blurb: >-
+              E A D G C — the fifth string on top instead of below. The
+              soloist's five-string: same low end as a four, a fourth more
+              melody on top.

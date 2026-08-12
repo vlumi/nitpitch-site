@@ -1,0 +1,11 @@
+{{- /* One entry → its universal link, armored exactly the way the app does
+     it: base64url (RFC 4648 §5, unpadded) of the v1 string
+     v1|template|midi,midi,…|ref|temperament|name. Temperament is never
+     carried by catalog entries — the player's own setting is respected —
+     and the name goes last so nothing can shift the fields before it. */ -}}
+{{- $midis := delimit .midis "," -}}
+{{- $ref := "" -}}
+{{- with .ref -}}{{- $ref = printf "%v" . -}}{{- end -}}
+{{- $fragment := printf "v1|%s|%s|%s||%s" .template $midis $ref .name -}}
+{{- $armored := $fragment | base64Encode | replaceRE `\+` "-" | replaceRE `/` "_" | replaceRE `=+$` "" -}}
+{{- return printf "https://nitpitch.app/t#%s" $armored -}}
