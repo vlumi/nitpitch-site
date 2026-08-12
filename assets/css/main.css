@@ -221,3 +221,38 @@ body {
   }
   .hero-icon { box-shadow: 0 8px 22px rgb(0 0 0 / .18); }
 }
+
+/* ---- tuning collection ---- */
+.tuning-index { list-style: none; padding: 0; }
+.tuning-index li {
+  display: flex; align-items: baseline; gap: .75rem;
+  padding: .5rem 0; border-bottom: 1px solid var(--line);
+}
+.tuning-count { color: var(--text-soft); font-size: .9rem; }
+.tuning-howto { color: var(--text-soft); }
+.tuning-group-blurb { color: var(--text-soft); }
+.tuning-entry {
+  display: flex; gap: 1.25rem; align-items: flex-start;
+  background: var(--panel-soft);
+  border: 1px solid var(--line); border-radius: 12px;
+  padding: 1.1rem 1.25rem; margin: 1rem 0;
+}
+.tuning-info { flex: 1; min-width: 0; }
+.tuning-entry h3 { margin: 0 0 .2rem; }
+.tuning-notes {
+  margin: 0 0 .4rem;
+  font-size: 1.15rem; font-weight: 600; letter-spacing: .04em;
+  font-variant-numeric: tabular-nums;
+}
+.tuning-ref { color: var(--accent); font-weight: 600; }
+.tuning-blurb { margin: 0 0 .6rem; color: var(--text-soft); }
+.tuning-link { margin: 0; font-size: .8rem; overflow-wrap: anywhere; }
+.tuning-link a { color: var(--text-soft); }
+/* The QR must scan from a dark page: white quiet zone, always. */
+.tuning-qr { flex: 0 0 auto; background: #fff; padding: 8px; border-radius: 8px; line-height: 0; }
+.tuning-qr img { display: block; }
+@media (max-width: 540px) {
+  .tuning-entry { flex-direction: column; }
+  .tuning-qr { align-self: center; }
+}
+.tuning-back { margin-top: 2rem; }

@@ -1,0 +1,5 @@
+{{- /* MIDI number → note name ("F♯3"). The MIDI numbers in the data are the
+     source of truth; every name on the page is computed from them, so the
+     page can never disagree with what the link actually loads. */ -}}
+{{- $names := slice "C" "C♯" "D" "D♯" "E" "F" "F♯" "G" "G♯" "A" "A♯" "B" -}}
+{{- return printf "%s%d" (index $names (mod . 12)) (sub (div . 12) 1) -}}

@@ -1,0 +1,51 @@
+{{ define "main" }}
+{{ $key := .Params.instrument }}
+{{ $inst := index site.Data.tunings.instruments $key }}
+{{ if not $inst }}{{ errorf "%s: no instrument %q in tunings.yaml" .File.Path $key }}{{ end }}
+<article class="prose">
+  <h1>{{ $inst.title }} tunings</h1>
+  <p>{{ $inst.intro }}</p>
+  <p class="tuning-howto">Scan a code with your iPhone camera — or open the
+  link — and Nitpitch offers the tuning: load it once, or keep it. Without
+  the app, the link shows the same details you see here.</p>
+
+  {{ $strings := 0 }}
+  {{ range $inst.groups }}
+    <h2>{{ .name }}</h2>
+    {{ with .blurb }}<p class="tuning-group-blurb">{{ . }}</p>{{ end }}
+    {{ range .entries }}
+      {{/* The data is validated at build time: a bad MIDI number here would
+           retune someone's instrument confidently and wrongly. */}}
+      {{ range .midis }}
+        {{ if or (lt . 23) (gt . 95) }}
+          {{ errorf "tunings.yaml %s: MIDI %d outside the app's 23…95 range" $key . }}
+        {{ end }}
+      {{ end }}
+      {{ $url := partial "tuning-url.html" (dict
+          "template" $inst.template "midis" .midis "ref" .ref "name" .name) }}
+      <section class="tuning-entry" id="{{ anchorize .name }}">
+        <div class="tuning-info">
+          <h3>{{ .name }}</h3>
+          <p class="tuning-notes">
+            {{- $parts := slice -}}
+            {{- range .midis -}}
+              {{- $parts = $parts | append (partial "midi-note.html" .) -}}
+            {{- end -}}
+            {{- delimit $parts " " -}}
+            {{- with .ref }} <span class="tuning-ref">· A={{ . }}</span>{{ end -}}
+          </p>
+          <p class="tuning-blurb">{{ .blurb }}</p>
+          <p class="tuning-link"><a href="{{ $url }}">{{ $url }}</a></p>
+        </div>
+        <div class="tuning-qr">
+          {{ with images.QR $url (dict "level" "medium" "scale" 4) }}
+            <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}"
+                 alt="QR code: {{ $.Params.instrument }} tuning “{{ $url }}”" loading="lazy">
+          {{ end }}
+        </div>
+      </section>
+    {{ end }}
+  {{ end }}
+  <p class="tuning-back"><a href="{{ "tunings/" | absURL }}">← All instruments</a></p>
+</article>
+{{ end }}

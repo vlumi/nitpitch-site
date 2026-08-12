@@ -1,0 +1,22 @@
+{{ define "main" }}
+<article class="prose">
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+  {{ range site.Data.tunings.categories }}
+    <h2>{{ .name }}</h2>
+    <ul class="tuning-index">
+      {{ range .instruments }}
+        {{ $key := . }}
+        {{ $inst := index site.Data.tunings.instruments $key }}
+        {{ if not $inst }}{{ errorf "tunings.yaml: category lists unknown instrument %q" $key }}{{ end }}
+        {{ $count := 0 }}
+        {{ range $inst.groups }}{{ $count = add $count (len .entries) }}{{ end }}
+        <li>
+          <a href="{{ printf "tunings/%s/" $key | absURL }}">{{ $inst.title }}</a>
+          <span class="tuning-count">{{ $count }} tunings</span>
+        </li>
+      {{ end }}
+    </ul>
+  {{ end }}
+</article>
+{{ end }}
