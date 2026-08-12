@@ -6,9 +6,9 @@
 
 categories:
   - name: "Bowed"
-    instruments: ["violin", "cello", "double-bass"]
+    instruments: ["violin", "viola", "cello", "double-bass"]
   - name: "Fretted"
-    instruments: ["guitar"]
+    instruments: ["guitar", "bass-guitar", "bass-guitar-5"]
 
 instruments:
   violin:
@@ -87,6 +87,29 @@ instruments:
             blurb: >-
               The second movement's solo violin, tuned a whole step up to
               sound "wie eine Fidel" — harsh, like a folk fiddle.
+  viola:
+    title: "Viola"
+    template: "viola"
+    intro: >-
+      The viola's one famous scordatura, and period pitch for the ensembles
+      that live there.
+    groups:
+      - name: "Scordatura repertoire"
+        entries:
+          - name: "Sinfonia Concertante"
+            midis: [49, 56, 63, 70]
+            blurb: >-
+              Mozart writes the solo viola in D but tunes it a semitone up,
+              sounding in E♭ with the orchestra — tighter strings, and a
+              brilliance that carries against the solo violin.
+      - name: "Historical pitch"
+        entries:
+          - name: "Baroque A=415"
+            midis: [48, 55, 62, 69]
+            ref: 415
+            blurb: >-
+              Standard fifths at period pitch — the viola's seat in a
+              Baroque band.
   cello:
     title: "Cello"
     template: "cello"
@@ -195,3 +218,54 @@ instruments:
             blurb: >-
               C G D G C D — neither major nor minor, all drone. A favorite
               of the Scottish and Irish fingerstyle school.
+  bass-guitar:
+    title: "Bass Guitar"
+    template: "bass-guitar"
+    intro: >-
+      The app ships Standard, Drop D, and Half-step down. These are the
+      deeper detunes and the restrings.
+    groups:
+      - name: "Lowered"
+        entries:
+          - name: "Full step down"
+            midis: [26, 31, 36, 41]
+            blurb: >-
+              D G C F — standard, one whole step lower, matching a band in
+              D standard.
+          - name: "Drop C"
+            midis: [24, 31, 36, 41]
+            blurb: >-
+              C G C F — full step down with the low string dropped to C,
+              matching drop-C guitars. The floor of comfortable four-string
+              detuning.
+      - name: "Restrung"
+        blurb: >-
+          These want a different string set, not just slacker tuning — the
+          honest cost of the range they buy.
+        entries:
+          - name: "BEAD"
+            midis: [23, 28, 33, 38]
+            blurb: >-
+              A five-string's low range on four strings: drop the G, add a
+              heavy B, shift everything over. Needs the heavier set.
+          - name: "Tenor bass"
+            midis: [33, 38, 43, 48]
+            blurb: >-
+              A D G C — the low E traded for a high C. Stanley Clarke's
+              register: chords and melody on top of the band, with a
+              lighter set.
+  bass-guitar-5:
+    title: "5-string Bass"
+    template: "bass-guitar-5"
+    intro: >-
+      The five-string usually extends DOWN — but the other direction exists
+      too.
+    groups:
+      - name: "Alternative sets"
+        entries:
+          - name: "High C"
+            midis: [28, 33, 38, 43, 48]
+            blurb: >-
+              E A D G C — the fifth string on top instead of below. The
+              soloist's five-string: same low end as a four, a fourth more
+              melody on top.
