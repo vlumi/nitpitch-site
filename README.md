@@ -1,6 +1,6 @@
 # nitpitch.app
 
-The website for **Nitpitch** — a violin tuner for iPhone, iPad, and Mac.
+The website for **Nitpitch** — a tuner for violin, guitar, bass, and more, on iPhone, iPad, and Mac.
 Landing, support, and privacy pages.
 
 The app itself is open source (MIT) at
