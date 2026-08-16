@@ -9,7 +9,7 @@ disableKinds:
   - RSS
 
 params:
-  tagline: "A violin tuner for iPhone, iPad, and Mac."
+  tagline: "A tuner for violin, guitar, bass, and more — on iPhone, iPad, and Mac."
   # Region-agnostic Universal Purchase link (one link serves iPhone/iPad/Mac).
   # Empty until the app is on sale — the template shows "coming soon" instead.
   appStoreURL: ""
