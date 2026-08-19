@@ -34,6 +34,7 @@ Four pages, all small:
 - `layouts/index.html` — the landing page, written directly in the template since it's structure rather than prose.
 - `content/support.md` — troubleshooting, aimed at the questions a tuner actually provokes ("it says play a note", "it disagrees with my other tuner").
 - `content/privacy.md` — mirrors [PRIVACY.md](https://github.com/vlumi/nitpitch/blob/main/PRIVACY.md) in the app repo. **Keep the two in step**: App Store Connect points at one of them, and a privacy policy that contradicts itself is worse than either version alone.
+- `content/guide.md` + `content/guide-watch.md` — the user guide, illustrated by real captures. The images live in `static/img/guide/` and come from the app repo's shot machinery, canonical names kept: `make shots` (the ASC set — the guide reuses launch/grid/string-view/presets/share), `make guide-shots` (the guide-only states), `make watch-shots` (the wrist, fully automatic). Re-run and re-copy when the UI changes; every illustration is a real detector reading by construction.
 
 ## Planned: the tuning collection
 
