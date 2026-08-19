@@ -256,3 +256,17 @@ body {
   .tuning-qr { align-self: center; }
 }
 .tuning-back { margin-top: 2rem; }
+
+/* ---- guide screenshots ---- */
+/* Real captures (make guide-shots / make shots), framed lightly so a light
+   screenshot never bleeds into a light page. Phone shots stay column-width;
+   watch shots are smaller still — a watch is small. */
+.prose figure { margin: 1.5rem auto; text-align: center; }
+.prose figure.shot img {
+  max-width: min(100%, 320px);
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid rgba(128, 128, 128, 0.35);
+}
+.prose figure.shot.wide img { max-width: 100%; }
+.prose figure.shot.watch img { max-width: min(100%, 210px); }
