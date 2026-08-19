@@ -19,6 +19,9 @@ params:
 
 menu:
   main:
+    - name: "Guide"
+      pageRef: "/guide"
+      weight: 3
     - name: "Tunings"
       pageRef: "/tunings"
       weight: 5

@@ -1,4 +1,5 @@
 ---
+layout: "guide"
 title: "Guide — Apple Watch"
 description: "How to use Nitpitch on the wrist: hands-free tuning by haptics, one string at a time."
 url: /guide/watch/

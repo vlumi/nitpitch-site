@@ -1,4 +1,5 @@
 ---
+layout: "guide"
 title: "Guide"
 description: "How to use Nitpitch on iPhone, iPad, and Mac — what each screen shows, and what every state means."
 url: /guide/

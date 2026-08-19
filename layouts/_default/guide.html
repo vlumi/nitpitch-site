@@ -1,0 +1,13 @@
+{{ define "main" }}
+  <article class="prose">
+    <h1>Guide</h1>
+    {{/* The two guide pages as TABS, so the watch page is discoverable
+         from the main one and vice versa — active tab styled, both
+         reachable in one tap. */}}
+    <nav class="guide-tabs" aria-label="Guide sections">
+      <a href="/guide/" {{ if eq .RelPermalink "/guide/" }}class="active" aria-current="page"{{ end }}>iPhone &middot; iPad &middot; Mac</a>
+      <a href="/guide/watch/" {{ if eq .RelPermalink "/guide/watch/" }}class="active" aria-current="page"{{ end }}>Apple Watch</a>
+    </nav>
+    {{ .Content }}
+  </article>
+{{ end }}
