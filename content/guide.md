@@ -33,9 +33,9 @@ Choose an instrument and every string gets its own dial, lit only by pitches nea
 
 Tap a dial to work on one string: a big dial, the target note with − / + steppers (nudging a target relabels the tuning *Custom* — the name follows the pitches), a speaker to sound the reference tone, and the strobe band. Swipe sideways or use the arrows to walk strings.
 
-{{< figure src="/img/guide/follow-iphone.png" alt="The Follow toggle lit in the string view" class="shot" >}}
+{{< figure src="/img/guide/follow-iphone.png" alt="The string view mid-walk, following the played string" class="shot" >}}
 
-The **location arrow** is the Follow toggle: lit, the screen walks to the string you're actually playing — a brushed neighbour never steals it, only a string played on purpose, and a *sympathetic ring* (an unmuted string singing along) never qualifies. Off by default, because a screen must never jump while you're mid-turn on a peg.
+The screen **follows your playing**: it walks to the string you're actually playing — a brushed neighbour never steals it, only a string played on purpose, and a *sympathetic ring* (an unmuted string singing along) never qualifies — and it never jumps while you're mid-turn on a peg, because working the current string holds it. When a string has held in tune a moment, the target turns **green** — done — and the screen advances to the next string almost immediately once you play it. A swipe or arrow always wins over the walk.
 
 ## Harmonics
 
