@@ -47,7 +47,7 @@ Touching a string's node instead of playing it open — the 12th-fret harmonic, 
 
 {{< figure src="/img/guide/intonation-iphone.png" alt="The intonation panel showing a delta" class="shot" >}}
 
-For fretted instruments' setup work: toggle the intonation layer from the grid's toolbar, play a string open, then at the 12th fret (or its harmonic). Each sample locks once it has *held* — a wobbly attack or a stray resonance can't pollute it — and the **Δ** is the verdict: how far the octave sits from where the open string promises it. Positive means the octave is sharp; on a guitar, the saddle wants to move back. Re-play either note after an adjustment and the newer sample simply replaces the older.
+For fretted instruments' setup work. Tuning and checking intonation are two different jobs, so the check is started deliberately: tap the **Intonation** chip in the footer — it sits beside the reference on both the grid and the single-string screen, and one tap switches both. Then play a string open, then at the 12th fret (or its harmonic). Each sample locks once it has *held* — a wobbly attack or a stray resonance can't pollute it — and the **Δ** is the verdict: how far the octave sits from where the open string promises it. Positive means the octave is sharp; on a guitar, the saddle wants to move back. Re-play either note after an adjustment and the newer sample simply replaces the older; tap the chip again (or leave the instrument) to go back to plain tuning.
 
 ## Presets and pins
 
