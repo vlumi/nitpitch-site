@@ -10,9 +10,9 @@ disableKinds:
 
 params:
   tagline: "A tuner for violin, guitar, bass, and more — on iPhone, iPad, and Mac."
-  # Region-agnostic Universal Purchase link (one link serves iPhone/iPad/Mac).
-  # Empty until the app is on sale — the template shows "coming soon" instead.
-  appStoreURL: ""
+  # Region-agnostic Universal Purchase link (one link serves iPhone/iPad/Mac):
+  # no country code, so the store sends each visitor to their own storefront.
+  appStoreURL: "https://apps.apple.com/app/id6796988974"
   supportEmail: ""
   githubURL: "https://github.com/vlumi/nitpitch"
   sponsorURL: "https://github.com/sponsors/vlumi"
