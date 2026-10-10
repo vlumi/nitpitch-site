@@ -15,7 +15,12 @@
       for the way string players actually tune.
     </p>
     {{ with .Site.Params.appStoreURL }}
-      <a class="appstore-badge" href="{{ . }}"><img src="/img/app-store-badge.svg" alt="Download on the App Store" width="150" height="50"></a>
+      {{/* Apple's own artwork (static/img/), never recreated or modified —
+           their guidelines are explicit about that. The dimensions are the
+           SVG's true 119.66×40 aspect scaled to a 45px height: above the
+           40px onscreen minimum, and declared so the box matches the image
+           rather than reserving a differently-shaped one. */}}
+      <a class="appstore-badge" href="{{ . }}"><img src="/img/app-store-badge.svg" alt="Download on the App Store" width="135" height="45"></a>
     {{ else }}
       <p class="hero-soon">Coming to the App Store.</p>
     {{ end }}

@@ -139,13 +139,16 @@ body {
 
 /* Official App Store badge (Apple marketing asset — do not alter the artwork).
    Sized ~150px wide with clear space around it per Apple's guidelines. */
+/* Apple's badge guidelines, which are specific and worth keeping:
+   the artwork is never modified, angled or ANIMATED (so no hover
+   transform here, unlike the site's other links), it clears a quarter of
+   its own height on every side, and it sits at 40px minimum on screen. */
 .appstore-badge {
   display: inline-block;
-  margin: .4rem 0;
-  transition: transform .08s ease;
+  margin: 0.75rem 0; /* ≥ ¼ of the 50px badge height */
+  padding: 0;
 }
 .appstore-badge img { display: block; height: auto; }
-.appstore-badge:hover { transform: translateY(-1px); }
 
 /* ---- features ---- */
 .features {
